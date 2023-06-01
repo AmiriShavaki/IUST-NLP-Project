@@ -1,16 +1,25 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 from functools import reduce
+from bidi.algorithm import get_display
+from arabic_reshaper import reshape
+from persiantools import digits
 
 ## Number of Comments
 
 # Plot
 com_cnt = [len(open(f'../data/raw/{i}star.csv', encoding="utf-8").readlines()) - 1 for i in range(1, 5+1)]
-labels = tuple(f'{i} star' for i in range(1, 5+1))
+labels = tuple(f'{i} ستاره' for i in range(1, 5+1))
 fig, ax = plt.subplots()
-ax.pie(com_cnt, labels=labels, autopct='%1.1f%%', pctdistance=1.25, labeldistance=.6)
-fig.savefig("../stats/com_cnt.png")
-fig.savefig("../latex_report/Images/com_cnt.png")
+ax.pie(
+    com_cnt,
+    labels=list(map(lambda x:get_display(reshape(digits.en_to_fa(x))), labels)),
+    autopct=lambda x: digits.en_to_fa('%1.1f%%' % x).replace(".", ','),
+    pctdistance=1.25,
+    labeldistance=.6
+)
+fig.savefig("../stats/com_cnt.png", dpi=200)
+fig.savefig("../latex_report/Images/com_cnt.png", dpi=200)
 
 # Table
 output_file = open("../latex_report/tables/com_cnt.csv", "w", encoding="utf-8")
@@ -32,11 +41,17 @@ output_file2.close()
 # Plot
 dfs = [pd.read_csv(f'../data/sentencebroken/{i}star.csv') for i in range(1, 5+1)]
 sen_cnt = [sum(df.apply(lambda x: x.notnull().sum(), axis='columns')) for df in dfs]
-labels = tuple(f'{i} star' for i in range(1, 5+1))
+labels = tuple(f'{i} ستاره' for i in range(1, 5+1))
 fig, ax = plt.subplots()
-ax.pie(sen_cnt, labels=labels, autopct='%1.1f%%', pctdistance=1.25, labeldistance=.6)
-fig.savefig("../stats/sen_cnt.png")
-fig.savefig("../latex_report/Images/sen_cnt.png")
+ax.pie(
+    sen_cnt,
+    labels=list(map(lambda x:get_display(reshape(digits.en_to_fa(x))), labels)),
+    autopct=lambda x: digits.en_to_fa('%1.1f%%' % x).replace(".", ','),
+    pctdistance=1.25,
+    labeldistance=.6
+)
+fig.savefig("../stats/sen_cnt.png", dpi=200)
+fig.savefig("../latex_report/Images/sen_cnt.png", dpi=200)
 
 # Table
 output_file = open("../latex_report/tables/sen_cnt.csv", "w", encoding="utf-8")
@@ -58,11 +73,17 @@ output_file2.close()
 # Plot
 dfs = [pd.read_csv(f'../data/clean/{i}star.csv') for i in range(1, 5+1)]
 word_cnt = [sum(dfs[i]['0'].apply(lambda x:len(x.split()))) for i in range(5)]
-labels = tuple(f'{i} star' for i in range(1, 5+1))
+labels = tuple(f'{i} ستاره' for i in range(1, 5+1))
 fig, ax = plt.subplots()
-ax.pie(word_cnt, labels=labels, autopct='%1.1f%%', pctdistance=1.25, labeldistance=.6)
-fig.savefig("../stats/word_cnt.png")
-fig.savefig("../latex_report/Images/word_cnt.png")
+ax.pie(
+    word_cnt,
+    labels=list(map(lambda x:get_display(reshape(digits.en_to_fa(x))), labels)),
+    autopct=lambda x: digits.en_to_fa('%1.1f%%' % x).replace(".", ','),
+    pctdistance=1.25,
+    labeldistance=.6
+)
+fig.savefig("../stats/word_cnt.png", dpi=200)
+fig.savefig("../latex_report/Images/word_cnt.png", dpi=200)
 
 # Table
 output_file = open("../latex_report/tables/word_cnt.csv", "w", encoding="utf-8")
@@ -85,11 +106,17 @@ output_file2.close()
 dfs = [pd.read_csv(f'../data/clean/{i}star.csv') for i in range(1, 5+1)]
 word_sets = [dfs[i]['0'].apply(lambda x:set(x.split())) for i in range(5)]
 unq_word_cnt = [len(reduce(set.union, word_sets[i].tolist())) for i in range(5)]
-labels = tuple(f'{i} star' for i in range(1, 5+1))
+labels = tuple(f'{i} ستاره' for i in range(1, 5+1))
 fig, ax = plt.subplots()
-ax.pie(unq_word_cnt, labels=labels, autopct='%1.1f%%', pctdistance=1.25, labeldistance=.6)
-fig.savefig("../stats/unq_word_cnt.png")
-fig.savefig("../latex_report/Images/unq_word_cnt.png")
+ax.pie(
+    unq_word_cnt,
+    labels=list(map(lambda x:get_display(reshape(digits.en_to_fa(x))), labels)),
+    autopct=lambda x: digits.en_to_fa('%1.1f%%' % x).replace(".", ','),
+    pctdistance=1.25,
+    labeldistance=.6
+)
+fig.savefig("../stats/unq_word_cnt.png", dpi=200)
+fig.savefig("../latex_report/Images/unq_word_cnt.png", dpi=200)
 
 # Table
 output_file = open("../latex_report/tables/unq_word_cnt.csv", "w", encoding="utf-8")
@@ -104,3 +131,5 @@ output_file2.write('\n'.join((
 )))
 output_file.close()
 output_file2.close()
+
+
