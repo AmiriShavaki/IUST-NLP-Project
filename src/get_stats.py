@@ -4,7 +4,9 @@ from functools import reduce
 from bidi.algorithm import get_display
 from arabic_reshaper import reshape
 from persiantools import digits
-from matplotlib.ticker import FuncFormatter
+from collections import Counter
+import copy
+from src import CLS_CNT
 
 ## Number of Comments
 
@@ -246,3 +248,64 @@ for i in ax.patches:
     )
 fig.savefig("../stats/uncom_words_cnt.png", dpi=200)
 fig.savefig("../latex_report/Images/uncom_words_cnt.png", dpi=200)
+
+
+## top-10 Uncommen words of each label
+
+dfs = [pd.read_csv(f'../data/wordbroken/{i}star.csv') for i in range(1, 5+1)]
+cnts = []
+for star in range(CLS_CNT):
+    cnt = Counter()
+    for i, row in dfs[star].iterrows():
+        as_list = row.tolist()
+        nan_removed = [i for i in as_list if isinstance(i, str)]
+        cnt.update(nan_removed)
+    cnts.append(cnt)
+
+uncom_cnts = copy.deepcopy(cnts)
+for i in range(CLS_CNT):
+    for j in range(CLS_CNT):
+        if i == j:
+            continue
+        for k in cnts[j]:
+            if k in uncom_cnts[i]:
+                del uncom_cnts[i][k]
+    uncom_cnts[i] = uncom_cnts[i].most_common(10)
+
+    # Table
+    first_row = [""] * 10
+    second_row = [""] * 10
+    for j, key in enumerate(uncom_cnts[i]):
+        first_row[j], second_row[j] = key[0], str(key[1])
+    csv_content = ",".join(first_row) + '\n' + ",".join(second_row)
+    output_file = open(f"../latex_report/tables/uncom_words_{i+1}star.csv", "w", encoding="utf-8")
+    output_file2 = open(f"../stats/uncom_words_{i+1}star.csv", "w", encoding="utf-8")
+    output_file.write(csv_content)
+    output_file2.write(csv_content)
+    output_file.close()
+    output_file2.close()
+
+# Plot
+for star in range(CLS_CNT):
+    words, words_cnt = zip(*uncom_cnts[star])
+    fig, ax = plt.subplots(figsize=(16, 9))
+    ax.barh(words, words_cnt)
+    for s in ['top', 'bottom', 'left', 'right']:
+        ax.spines[s].set_visible(False)
+    ax.xaxis.set_ticks_position('none')
+    ax.yaxis.set_ticks_position('none')
+    ax.xaxis.set_tick_params(pad=5)
+    ax.yaxis.set_tick_params(pad=10)
+    ax.grid(visible=True, color='grey', linestyle='-.', linewidth=0.5, alpha=0.2)
+    ax.invert_yaxis()
+    for i in ax.patches:
+        plt.text(
+            i.get_width() + 0.2,
+            i.get_y() + 0.5,
+            str(round((i.get_width()), 2)),
+            fontsize=10,
+            fontweight='bold',
+            color='grey'
+        )
+    fig.savefig(f"../stats/uncom_words_{star+1}star.png", dpi=200)
+    fig.savefig(f"../latex_report/Images/uncom_words_{star+1}star.png", dpi=200)
