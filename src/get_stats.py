@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+from functools import reduce
 
 ## Number of Comments
 
@@ -73,6 +74,33 @@ output_file.write('\n'.join((
 output_file2.write('\n'.join((
     ",۱ ستاره,۲ ستاره,۳ ستاره, ۴ ستاره, ۵ ستاره, همه‌ برچسب‌ها",
     "تعداد کلمات, {},{},{},{},{},{}".format(*word_cnt, sum(word_cnt))
+)))
+output_file.close()
+output_file2.close()
+
+
+## Number of unique words
+
+# Plot
+dfs = [pd.read_csv(f'../data/clean/{i}star.csv') for i in range(1, 5+1)]
+word_sets = [dfs[i]['0'].apply(lambda x:set(x.split())) for i in range(5)]
+unq_word_cnt = [len(reduce(set.union, word_sets[i].tolist())) for i in range(5)]
+labels = tuple(f'{i} star' for i in range(1, 5+1))
+fig, ax = plt.subplots()
+ax.pie(unq_word_cnt, labels=labels, autopct='%1.1f%%', pctdistance=1.25, labeldistance=.6)
+fig.savefig("../stats/unq_word_cnt.png")
+fig.savefig("../latex_report/Images/unq_word_cnt.png")
+
+# Table
+output_file = open("../latex_report/tables/unq_word_cnt.csv", "w", encoding="utf-8")
+output_file2 = open("../stats/unq_word_cnt.csv", "w", encoding="utf-8")
+output_file.write('\n'.join((
+    ",۱ ستاره,۲ ستاره,۳ ستاره, ۴ ستاره, ۵ ستاره",
+    "تعداد کلمات منحصر به فرد, {},{},{},{},{}".format(*unq_word_cnt)
+)))
+output_file2.write('\n'.join((
+    ",۱ ستاره,۲ ستاره,۳ ستاره, ۴ ستاره, ۵ ستاره",
+    "تعداد کلمات منحصر به فرد, {},{},{},{},{}".format(*unq_word_cnt)
 )))
 output_file.close()
 output_file2.close()
