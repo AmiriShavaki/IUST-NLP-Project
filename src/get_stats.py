@@ -7,6 +7,7 @@ from persiantools import digits
 from collections import Counter
 import copy
 from src import CLS_CNT
+from tqdm import tqdm
 
 ## Number of Comments
 
@@ -23,6 +24,7 @@ ax.pie(
 )
 fig.savefig("../stats/com_cnt.png", dpi=200)
 fig.savefig("../latex_report/Images/com_cnt.png", dpi=200)
+plt.close(fig)
 
 # Table
 output_file = open("../latex_report/tables/com_cnt.csv", "w", encoding="utf-8")
@@ -55,6 +57,7 @@ ax.pie(
 )
 fig.savefig("../stats/sen_cnt.png", dpi=200)
 fig.savefig("../latex_report/Images/sen_cnt.png", dpi=200)
+plt.close(fig)
 
 # Table
 output_file = open("../latex_report/tables/sen_cnt.csv", "w", encoding="utf-8")
@@ -87,6 +90,7 @@ ax.pie(
 )
 fig.savefig("../stats/word_cnt.png", dpi=200)
 fig.savefig("../latex_report/Images/word_cnt.png", dpi=200)
+plt.close(fig)
 
 # Table
 output_file = open("../latex_report/tables/word_cnt.csv", "w", encoding="utf-8")
@@ -120,6 +124,7 @@ ax.pie(
 )
 fig.savefig("../stats/unq_word_cnt.png", dpi=200)
 fig.savefig("../latex_report/Images/unq_word_cnt.png", dpi=200)
+plt.close(fig)
 
 # Table
 output_file = open("../latex_report/tables/unq_word_cnt.csv", "w", encoding="utf-8")
@@ -195,6 +200,7 @@ for i in ax.patches:
     )
 fig.savefig("../stats/com_words_cnt.png", dpi=200)
 fig.savefig("../latex_report/Images/com_words_cnt.png", dpi=200)
+plt.close(fig)
 
 
 ## Number of uncommon unique words among each pairs of labels
@@ -248,22 +254,25 @@ for i in ax.patches:
     )
 fig.savefig("../stats/uncom_words_cnt.png", dpi=200)
 fig.savefig("../latex_report/Images/uncom_words_cnt.png", dpi=200)
+plt.close(fig)
 
 
 ## top-10 Uncommen words of each label
 
-dfs = [pd.read_csv(f'../data/wordbroken/{i}star.csv') for i in range(1, 5+1)]
+dfs = [pd.read_csv(f'../data/wordbroken/{i}star.csv', low_memory=False) for i in range(1, 5+1)]
 cnts = []
-for star in range(CLS_CNT):
+word_cnt_total = [0] * CLS_CNT
+for star in tqdm(range(CLS_CNT)):
     cnt = Counter()
     for i, row in dfs[star].iterrows():
         as_list = row.tolist()
         nan_removed = [i for i in as_list if isinstance(i, str)]
         cnt.update(nan_removed)
+        word_cnt_total[star] += len(nan_removed)
     cnts.append(cnt)
 
 uncom_cnts = copy.deepcopy(cnts)
-for i in range(CLS_CNT):
+for i in tqdm(range(CLS_CNT)):
     for j in range(CLS_CNT):
         if i == j:
             continue
@@ -309,3 +318,67 @@ for star in range(CLS_CNT):
         )
     fig.savefig(f"../stats/uncom_words_{star+1}star.png", dpi=200)
     fig.savefig(f"../latex_report/Images/uncom_words_{star+1}star.png", dpi=200)
+    plt.close(fig)
+
+
+## Relative Normalized Frequencies
+
+res = dict()
+
+# Labels are 0-based on this piece of code (despite of all other parts of this file)
+for i in tqdm(range(CLS_CNT)):
+    for j in range(i+1, CLS_CNT):
+        res[(i, j)] = dict()
+        res[(j, i)] = dict()
+        label1 = i
+        label2 = j
+        for wi in cnts[label1] & cnts[label2]:
+            count_wi_label1 = cnts[label1][wi]
+            count_wi_label2 = cnts[label2][wi]
+            count_w_label1 = word_cnt_total[label1]
+            count_w_label2 = word_cnt_total[label2]
+            res[(i, j)][wi] = (count_wi_label1 / count_w_label1) / (count_wi_label2 / count_w_label2)
+            res[(j, i)][wi] = 1 / res[(i, j)][wi]
+
+for i in tqdm(range(CLS_CNT)):
+    for j in range(CLS_CNT):
+        if i != j:
+            topmost = sorted(res[(i, j)].items(), key=lambda item: item[1], reverse=True)[:10]
+
+            # Table
+            first_row = [""] * 10
+            second_row = [""] * 10
+            for k, key in enumerate(topmost):
+                first_row[k], second_row[k] = key[0], "\\lr{{{:.1f}}}".format(key[1])
+            csv_content = ",".join(first_row) + '\n' + ",".join(second_row)
+            output_file = open(f"../latex_report/tables/rel_norm_freq_{i + 1}_{j + 1}.csv", "w", encoding="utf-8")
+            output_file2 = open(f"../stats/rel_norm_freq_{i + 1}_{j + 1}.csv", "w", encoding="utf-8")
+            output_file.write(csv_content)
+            output_file2.write(csv_content)
+            output_file.close()
+            output_file2.close()
+
+            # Plot
+            words, val = zip(*topmost)
+            fig, ax = plt.subplots(figsize=(16, 9))
+            ax.barh(words, list(map(float, val)))
+            for s in ['top', 'bottom', 'left', 'right']:
+                ax.spines[s].set_visible(False)
+            ax.xaxis.set_ticks_position('none')
+            ax.yaxis.set_ticks_position('none')
+            ax.xaxis.set_tick_params(pad=5)
+            ax.yaxis.set_tick_params(pad=10)
+            ax.grid(visible=True, color='grey', linestyle='-.', linewidth=0.5, alpha=0.2)
+            ax.invert_yaxis()
+            for k in ax.patches:
+                plt.text(
+                    k.get_width() + 0.2,
+                    k.get_y() + 0.5,
+                    str(round((k.get_width()), 2)),
+                    fontsize=10,
+                    fontweight='bold',
+                    color='grey'
+                )
+            fig.savefig(f"../stats/rel_norm_freq_{i + 1}_{j + 1}.png", dpi=200)
+            fig.savefig(f"../latex_report/Images/rel_norm_freq_{i + 1}_{j + 1}.png", dpi=200)
+            plt.close(fig)
