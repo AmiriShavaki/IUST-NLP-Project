@@ -1,0 +1,56 @@
+\BOOKMARK [1][-]{section.1}{منبع دقیق داده}{}% 1
+\BOOKMARK [1][-]{section.2}{روش جمع‌آوری و ابزار مورداستفاده}{}% 2
+\BOOKMARK [1][-]{section.3}{فرمت داده‌ها}{}% 3
+\BOOKMARK [1][-]{section.4}{پیش‌پرداز‌ش‌های انجام‌شده}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{روش/ابزار تفکیک جملات}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{روش/ابزار تفکیک توکن‌ها/کلمات}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{روش/معیارهای تمیزکردن داده}{section.4}% 7
+\BOOKMARK [3][-]{subsubsection.4.3.1}{جاگذاری ایموجی‌ها}{subsection.4.3}% 8
+\BOOKMARK [3][-]{subsubsection.4.3.2}{حذف کلمات پالایشی \(stopwords\)}{subsection.4.3}% 9
+\BOOKMARK [3][-]{subsubsection.4.3.3}{بسط دادن فرم‌های کوتاه‌شده \(contractions\)}{subsection.4.3}% 10
+\BOOKMARK [3][-]{subsubsection.4.3.4}{حذف ارقام}{subsection.4.3}% 11
+\BOOKMARK [3][-]{subsubsection.4.3.5}{حذف کاراکترهای نامربوط \(کاراکترهای غیر از ارقام، حروف، فاصله و نقطه\)}{subsection.4.3}% 12
+\BOOKMARK [3][-]{subsubsection.4.3.6}{حذف فاصله‌های اضافی}{subsection.4.3}% 13
+\BOOKMARK [2][-]{subsection.4.4}{اندازه داده قبل/بعد تمیزکردن داده}{section.4}% 14
+\BOOKMARK [1][-]{section.5}{واحد و روش برچسب‌گذاری}{}% 15
+\BOOKMARK [1][-]{section.6}{آمار داده به تفکیک برچسب}{}% 16
+\BOOKMARK [2][-]{subsection.6.1}{تعداد کامنت‌ها}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.2}{تعداد جملات}{section.6}% 18
+\BOOKMARK [2][-]{subsection.6.3}{تعداد کلمات}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.4}{تعداد کلمات منحصربفرد}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.5}{تعداد کلمات منحصربفرد مشترک بین جفت برچسب‌ها}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.6}{تعداد کلمات منحصربفرد غیرمشترک بین جفت برچسب‌ها}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.7}{۱۰ کلمه پرتکرار غیرمشترک هر برچسب}{section.6}% 23
+\BOOKMARK [3][-]{subsubsection.6.7.1}{۱ ستاره}{subsection.6.7}% 24
+\BOOKMARK [3][-]{subsubsection.6.7.2}{۲ ستاره}{subsection.6.7}% 25
+\BOOKMARK [3][-]{subsubsection.6.7.3}{۳ ستاره}{subsection.6.7}% 26
+\BOOKMARK [3][-]{subsubsection.6.7.4}{۴ ستاره}{subsection.6.7}% 27
+\BOOKMARK [3][-]{subsubsection.6.7.5}{۵ ستاره}{subsection.6.7}% 28
+\BOOKMARK [2][-]{subsection.6.8}{۱۰ کلمه مشترک برتر هر برچسب نسبت به برچسب‌های دیگر بر اساس معیار Relative Normalized Frequency}{section.6}% 29
+\BOOKMARK [3][-]{subsubsection.6.8.1}{1 ستاره به 2 ستاره}{subsection.6.8}% 30
+\BOOKMARK [3][-]{subsubsection.6.8.2}{1 ستاره به 3 ستاره}{subsection.6.8}% 31
+\BOOKMARK [3][-]{subsubsection.6.8.3}{1 ستاره به 4 ستاره}{subsection.6.8}% 32
+\BOOKMARK [3][-]{subsubsection.6.8.4}{1 ستاره به 5 ستاره}{subsection.6.8}% 33
+\BOOKMARK [3][-]{subsubsection.6.8.5}{2 ستاره به 1 ستاره}{subsection.6.8}% 34
+\BOOKMARK [3][-]{subsubsection.6.8.6}{2 ستاره به 3 ستاره}{subsection.6.8}% 35
+\BOOKMARK [3][-]{subsubsection.6.8.7}{2 ستاره به 4 ستاره}{subsection.6.8}% 36
+\BOOKMARK [3][-]{subsubsection.6.8.8}{2 ستاره به 5 ستاره}{subsection.6.8}% 37
+\BOOKMARK [3][-]{subsubsection.6.8.9}{3 ستاره به 1 ستاره}{subsection.6.8}% 38
+\BOOKMARK [3][-]{subsubsection.6.8.10}{3 ستاره به 2 ستاره}{subsection.6.8}% 39
+\BOOKMARK [3][-]{subsubsection.6.8.11}{3 ستاره به 4 ستاره}{subsection.6.8}% 40
+\BOOKMARK [3][-]{subsubsection.6.8.12}{3 ستاره به 5 ستاره}{subsection.6.8}% 41
+\BOOKMARK [3][-]{subsubsection.6.8.13}{4 ستاره به 1 ستاره}{subsection.6.8}% 42
+\BOOKMARK [3][-]{subsubsection.6.8.14}{4 ستاره به 2 ستاره}{subsection.6.8}% 43
+\BOOKMARK [3][-]{subsubsection.6.8.15}{4 ستاره به 3 ستاره}{subsection.6.8}% 44
+\BOOKMARK [3][-]{subsubsection.6.8.16}{4 ستاره به 5 ستاره}{subsection.6.8}% 45
+\BOOKMARK [3][-]{subsubsection.6.8.17}{5 ستاره به 1 ستاره}{subsection.6.8}% 46
+\BOOKMARK [3][-]{subsubsection.6.8.18}{5 ستاره به 2 ستاره}{subsection.6.8}% 47
+\BOOKMARK [3][-]{subsubsection.6.8.19}{5 ستاره به 3 ستاره}{subsection.6.8}% 48
+\BOOKMARK [3][-]{subsubsection.6.8.20}{5 ستاره به 4 ستاره}{subsection.6.8}% 49
+\BOOKMARK [2][-]{subsection.6.9}{۱۰ کلمه برتر هر برچسب بر اساس معیار TF-IDF }{section.6}% 50
+\BOOKMARK [3][-]{subsubsection.6.9.1}{1 ستاره}{subsection.6.9}% 51
+\BOOKMARK [3][-]{subsubsection.6.9.2}{2 ستاره}{subsection.6.9}% 52
+\BOOKMARK [3][-]{subsubsection.6.9.3}{3 ستاره}{subsection.6.9}% 53
+\BOOKMARK [3][-]{subsubsection.6.9.4}{4 ستاره}{subsection.6.9}% 54
+\BOOKMARK [3][-]{subsubsection.6.9.5}{5 ستاره}{subsection.6.9}% 55
+\BOOKMARK [2][-]{subsection.6.10}{هیستوگرام تعداد تکرار هر کلمه منحصربفرد}{section.6}% 56

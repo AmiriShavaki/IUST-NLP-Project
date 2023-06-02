@@ -1,0 +1,56 @@
+\contentsline {section}{\numberline {1}منبع دقیق داده}{4}{section.1}
+\contentsline {section}{\numberline {2}روش جمع‌آوری و ابزار مورداستفاده}{4}{section.2}
+\contentsline {section}{\numberline {3}فرمت داده‌ها}{5}{section.3}
+\contentsline {section}{\numberline {4}پیش‌پرداز‌ش‌های انجام‌شده}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}روش/ابزار تفکیک جملات}{5}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}روش/ابزار تفکیک توکن‌ها/کلمات}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}روش/معیارهای تمیزکردن داده}{6}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}\relax \fontsize {14.4}{18}\selectfont جاگذاری ایموجی‌ها}{6}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}\relax \fontsize {14.4}{18}\selectfont حذف کلمات پالایشی (\lr {stopwords})}{6}{subsubsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.3}\relax \fontsize {14.4}{18}\selectfont بسط دادن فرم‌های کوتاه‌شده (\lr {contractions})}{7}{subsubsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.4}\relax \fontsize {14.4}{18}\selectfont حذف ارقام}{7}{subsubsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.5}\relax \fontsize {14.4}{18}\selectfont حذف کاراکترهای نامربوط (کاراکترهای غیر از ارقام، حروف، فاصله و نقطه)}{7}{subsubsection.4.3.5}
+\contentsline {subsubsection}{\numberline {4.3.6}\relax \fontsize {14.4}{18}\selectfont حذف فاصله‌های اضافی}{7}{subsubsection.4.3.6}
+\contentsline {subsection}{\numberline {4.4}اندازه داده قبل/بعد تمیزکردن داده}{8}{subsection.4.4}
+\contentsline {section}{\numberline {5}واحد و روش برچسب‌گذاری}{8}{section.5}
+\contentsline {section}{\numberline {6}آمار داده به تفکیک برچسب}{9}{section.6}
+\contentsline {subsection}{\numberline {6.1}تعداد کامنت‌ها}{9}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}تعداد جملات}{10}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}تعداد کلمات}{11}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}تعداد کلمات منحصربفرد}{12}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}تعداد کلمات منحصربفرد مشترک بین جفت برچسب‌ها}{13}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}تعداد کلمات منحصربفرد غیرمشترک بین جفت برچسب‌ها}{14}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}۱۰ کلمه پرتکرار غیرمشترک هر برچسب}{15}{subsection.6.7}
+\contentsline {subsubsection}{\numberline {6.7.1}\relax \fontsize {14.4}{18}\selectfont ۱ ستاره}{15}{subsubsection.6.7.1}
+\contentsline {subsubsection}{\numberline {6.7.2}\relax \fontsize {14.4}{18}\selectfont ۲ ستاره}{16}{subsubsection.6.7.2}
+\contentsline {subsubsection}{\numberline {6.7.3}\relax \fontsize {14.4}{18}\selectfont ۳ ستاره}{17}{subsubsection.6.7.3}
+\contentsline {subsubsection}{\numberline {6.7.4}\relax \fontsize {14.4}{18}\selectfont ۴ ستاره}{18}{subsubsection.6.7.4}
+\contentsline {subsubsection}{\numberline {6.7.5}\relax \fontsize {14.4}{18}\selectfont ۵ ستاره}{19}{subsubsection.6.7.5}
+\contentsline {subsection}{\numberline {6.8}۱۰ کلمه مشترک برتر هر برچسب نسبت به برچسب‌های دیگر بر اساس معیار \lr {Relative Normalized Frequency}}{20}{subsection.6.8}
+\contentsline {subsubsection}{\numberline {6.8.1}\relax \fontsize {14.4}{18}\selectfont 1 ستاره به 2 ستاره}{20}{subsubsection.6.8.1}
+\contentsline {subsubsection}{\numberline {6.8.2}\relax \fontsize {14.4}{18}\selectfont 1 ستاره به 3 ستاره}{21}{subsubsection.6.8.2}
+\contentsline {subsubsection}{\numberline {6.8.3}\relax \fontsize {14.4}{18}\selectfont 1 ستاره به 4 ستاره}{22}{subsubsection.6.8.3}
+\contentsline {subsubsection}{\numberline {6.8.4}\relax \fontsize {14.4}{18}\selectfont 1 ستاره به 5 ستاره}{23}{subsubsection.6.8.4}
+\contentsline {subsubsection}{\numberline {6.8.5}\relax \fontsize {14.4}{18}\selectfont 2 ستاره به 1 ستاره}{24}{subsubsection.6.8.5}
+\contentsline {subsubsection}{\numberline {6.8.6}\relax \fontsize {14.4}{18}\selectfont 2 ستاره به 3 ستاره}{25}{subsubsection.6.8.6}
+\contentsline {subsubsection}{\numberline {6.8.7}\relax \fontsize {14.4}{18}\selectfont 2 ستاره به 4 ستاره}{26}{subsubsection.6.8.7}
+\contentsline {subsubsection}{\numberline {6.8.8}\relax \fontsize {14.4}{18}\selectfont 2 ستاره به 5 ستاره}{27}{subsubsection.6.8.8}
+\contentsline {subsubsection}{\numberline {6.8.9}\relax \fontsize {14.4}{18}\selectfont 3 ستاره به 1 ستاره}{28}{subsubsection.6.8.9}
+\contentsline {subsubsection}{\numberline {6.8.10}\relax \fontsize {14.4}{18}\selectfont 3 ستاره به 2 ستاره}{29}{subsubsection.6.8.10}
+\contentsline {subsubsection}{\numberline {6.8.11}\relax \fontsize {14.4}{18}\selectfont 3 ستاره به 4 ستاره}{30}{subsubsection.6.8.11}
+\contentsline {subsubsection}{\numberline {6.8.12}\relax \fontsize {14.4}{18}\selectfont 3 ستاره به 5 ستاره}{31}{subsubsection.6.8.12}
+\contentsline {subsubsection}{\numberline {6.8.13}\relax \fontsize {14.4}{18}\selectfont 4 ستاره به 1 ستاره}{32}{subsubsection.6.8.13}
+\contentsline {subsubsection}{\numberline {6.8.14}\relax \fontsize {14.4}{18}\selectfont 4 ستاره به 2 ستاره}{33}{subsubsection.6.8.14}
+\contentsline {subsubsection}{\numberline {6.8.15}\relax \fontsize {14.4}{18}\selectfont 4 ستاره به 3 ستاره}{34}{subsubsection.6.8.15}
+\contentsline {subsubsection}{\numberline {6.8.16}\relax \fontsize {14.4}{18}\selectfont 4 ستاره به 5 ستاره}{35}{subsubsection.6.8.16}
+\contentsline {subsubsection}{\numberline {6.8.17}\relax \fontsize {14.4}{18}\selectfont 5 ستاره به 1 ستاره}{36}{subsubsection.6.8.17}
+\contentsline {subsubsection}{\numberline {6.8.18}\relax \fontsize {14.4}{18}\selectfont 5 ستاره به 2 ستاره}{37}{subsubsection.6.8.18}
+\contentsline {subsubsection}{\numberline {6.8.19}\relax \fontsize {14.4}{18}\selectfont 5 ستاره به 3 ستاره}{38}{subsubsection.6.8.19}
+\contentsline {subsubsection}{\numberline {6.8.20}\relax \fontsize {14.4}{18}\selectfont 5 ستاره به 4 ستاره}{39}{subsubsection.6.8.20}
+\contentsline {subsection}{\numberline {6.9}۱۰ کلمه برتر هر برچسب بر اساس معیار \lr {TF-IDF} }{40}{subsection.6.9}
+\contentsline {subsubsection}{\numberline {6.9.1}\relax \fontsize {14.4}{18}\selectfont 1 ستاره}{40}{subsubsection.6.9.1}
+\contentsline {subsubsection}{\numberline {6.9.2}\relax \fontsize {14.4}{18}\selectfont 2 ستاره}{41}{subsubsection.6.9.2}
+\contentsline {subsubsection}{\numberline {6.9.3}\relax \fontsize {14.4}{18}\selectfont 3 ستاره}{42}{subsubsection.6.9.3}
+\contentsline {subsubsection}{\numberline {6.9.4}\relax \fontsize {14.4}{18}\selectfont 4 ستاره}{43}{subsubsection.6.9.4}
+\contentsline {subsubsection}{\numberline {6.9.5}\relax \fontsize {14.4}{18}\selectfont 5 ستاره}{44}{subsubsection.6.9.5}
+\contentsline {subsection}{\numberline {6.10}هیستوگرام تعداد تکرار هر کلمه منحصربفرد}{45}{subsection.6.10}
