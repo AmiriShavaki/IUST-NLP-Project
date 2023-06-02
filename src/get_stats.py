@@ -8,6 +8,7 @@ from collections import Counter
 import copy
 from src import CLS_CNT
 from tqdm import tqdm
+import numpy as np
 
 ## Number of Comments
 
@@ -382,3 +383,23 @@ for i in tqdm(range(CLS_CNT)):
             fig.savefig(f"../stats/rel_norm_freq_{i + 1}_{j + 1}.png", dpi=200)
             fig.savefig(f"../latex_report/Images/rel_norm_freq_{i + 1}_{j + 1}.png", dpi=200)
             plt.close(fig)
+
+## Histogram of word frequencies
+cnt_total = dict()
+for i in range(5):
+    cnt_total.update(cnts[i])
+words, counts = zip(*sorted(cnt_total.items(), key=lambda item: item[1], reverse=True))
+
+w = 0.75
+fig, ax = plt.subplots()
+x = np.arange(len(words))
+b = ax.bar(x, counts, w, bottom=1)
+ax.set_xticks(x + w / 2, labels=map(str, x))
+ax.set_yscale('log')
+ax.set_xlabel('Words')
+ax.set_ylabel('Counts')
+frame = plt.gca()
+frame.axes.get_xaxis().set_ticks([])
+fig.savefig(f"../stats/histogram.png", dpi=200)
+fig.savefig(f"../latex_report/Images/histogram.png", dpi=200)
+plt.close(fig)
