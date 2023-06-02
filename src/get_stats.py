@@ -9,6 +9,7 @@ import copy
 from src import CLS_CNT
 from tqdm import tqdm
 import numpy as np
+import math
 
 ## Number of Comments
 
@@ -384,9 +385,58 @@ for i in tqdm(range(CLS_CNT)):
             fig.savefig(f"../latex_report/Images/rel_norm_freq_{i + 1}_{j + 1}.png", dpi=200)
             plt.close(fig)
 
+# TF-IDF
+
+for star in range(CLS_CNT):
+    tf_idf_res = dict()
+    for wi in cnts[star]:
+        tf = cnts[star][wi] / word_cnt_total[star]
+        idf = math.log(CLS_CNT / sum(wi in doc for doc in cnts))
+        tf_idf_res[wi] = tf * idf
+    topmost = sorted(tf_idf_res.items(), key=lambda item: item[1], reverse=True)[:10]
+
+    # Table
+    first_row = [""] * 11
+    second_row = [""] * 11
+    second_row[0] = "TF-IDF"
+    for k, key in enumerate(topmost, start=1):
+        first_row[k], second_row[k] = key[0], "\\lr{{{:.6f}}}".format(key[1])
+    csv_content = ",".join(first_row) + '\n' + ",".join(second_row)
+    output_file = open(f"../latex_report/tables/tf_idf_{star+1}.csv", "w", encoding="utf-8")
+    output_file2 = open(f"../stats/tf_idf_{star+1}.csv", "w", encoding="utf-8")
+    output_file.write(csv_content)
+    output_file2.write(csv_content)
+    output_file.close()
+    output_file2.close()
+
+    # Plot
+    words, val = zip(*topmost)
+    fig, ax = plt.subplots(figsize=(16, 9))
+    ax.barh(words, list(map(float, val)))
+    for s in ['top', 'bottom', 'left', 'right']:
+        ax.spines[s].set_visible(False)
+    ax.xaxis.set_ticks_position('none')
+    ax.yaxis.set_ticks_position('none')
+    ax.xaxis.set_tick_params(pad=5)
+    ax.yaxis.set_tick_params(pad=10)
+    ax.grid(visible=True, color='grey', linestyle='-.', linewidth=0.5, alpha=0.2)
+    ax.invert_yaxis()
+    for k in ax.patches:
+        plt.text(
+            k.get_width() + 0.2,
+            k.get_y() + 0.5,
+            str(round((k.get_width()), 2)),
+            fontsize=10,
+            fontweight='bold',
+            color='grey'
+        )
+    fig.savefig(f"../stats/tf_idf_{star+1}.png", dpi=200)
+    fig.savefig(f"../latex_report/Images/tf_idf_{star+1}.png", dpi=200)
+    plt.close(fig)
+
 ## Histogram of word frequencies
 cnt_total = dict()
-for i in range(5):
+for i in range(CLS_CNT):
     cnt_total.update(cnts[i])
 words, counts = zip(*sorted(cnt_total.items(), key=lambda item: item[1], reverse=True))
 
