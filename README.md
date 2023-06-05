@@ -29,3 +29,6 @@ You can also use `run.bat` to run the whole of the above process
 
 ## How do I get the report?
 The report is written in Persian and prepared using $\LaTeX$. If you run the above process and get new data and new stats then it will auto updated on the report once you run the `generate_report_pdf.bat` script
+
+## How do I prepare an environment to run the project?
+Simply using conda you can run `conda create --name <envname> --file requirements.txt` in the root directory of the project and then every dependency needed to run this project will be installed and ready for you!
