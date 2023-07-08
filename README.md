@@ -34,4 +34,4 @@ python -m src.get_stats.py
 You can also use `run.bat` to run the whole of the above process
 
 ## How do I get the report of phase 1?
-The report is written in Persian and prepared using $\LaTeX$. If you run the above process and get new data and new stats then it will auto updated on the report once you run the `generate_report_pdf.bat` script
+The report is written in Persian and prepared using $\LaTeX$. If you run the above process and get new data and new stats then it will auto updated on the report once you run the `generate_phase1_report_pdf.bat` script
