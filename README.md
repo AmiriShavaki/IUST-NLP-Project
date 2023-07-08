@@ -1,3 +1,6 @@
+# Phase 2
+
+# Phase 1
 [Link to the collected dataset on huggingface](https://huggingface.co/datasets/Amiri/Google-Play-Reviews-for-Sentiment-Analysis/tree/main)
 
 ### Collecting raw data from google play
