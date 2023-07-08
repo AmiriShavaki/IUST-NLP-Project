@@ -3,6 +3,22 @@ Simply using conda you can run `conda create --name <envname> --file requirement
 
 # Phase 2
 
+### Train word2vec model on a specific class or the whole dataset
+```
+cp data\sentencebroken\Xstar.csv src\word2vec\utils\datasets\Xstar.csv
+python -m src.word2vec.run --file Xstar
+```
+or
+```
+cp data\sentencebroken\1star.csv src\word2vec\utils\datasets\1star.csv
+cp data\sentencebroken\2star.csv src\word2vec\utils\datasets\2star.csv
+cp data\sentencebroken\3star.csv src\word2vec\utils\datasets\3star.csv
+cp data\sentencebroken\4star.csv src\word2vec\utils\datasets\4star.csv
+cp data\sentencebroken\5star.csv src\word2vec\utils\datasets\5star.csv
+python -m src.word2vec.run --file all
+```
+Then the result model will be saved in `models/Xstar.word2vec.npy` or `models/all.word2vec.npy`
+
 # Phase 1
 [Link to the collected dataset on huggingface](https://huggingface.co/datasets/Amiri/Google-Play-Reviews-for-Sentiment-Analysis/tree/main)
 
