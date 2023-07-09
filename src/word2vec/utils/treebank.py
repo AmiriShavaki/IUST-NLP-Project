@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import pickle
+import sys
+
 import numpy as np
 import os
 import random
@@ -64,7 +66,7 @@ class StanfordSentiment:
 
                     # Deal with some peculiar encoding issues with this file
                     for i in splitted:
-                        sentences += [[w.lower() for w in i]]
+                        sentences += [i.lower().replace('.', '').split()]
 
         self._sentences = sentences
         self._sentlengths = np.array([len(s) for s in sentences])
