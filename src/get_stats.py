@@ -25,11 +25,11 @@ ax.pie(
     labeldistance=.6
 )
 fig.savefig("../stats/com_cnt.png", dpi=200)
-fig.savefig("../latex_report/Images/com_cnt.png", dpi=200)
+fig.savefig("../latex_phase1_report/Images/com_cnt.png", dpi=200)
 plt.close(fig)
 
 # Table
-output_file = open("../latex_report/tables/com_cnt.csv", "w", encoding="utf-8")
+output_file = open("../latex_phase1_report/tables/com_cnt.csv", "w", encoding="utf-8")
 output_file2 = open("../stats/com_cnt.csv", "w", encoding="utf-8")
 output_file.write('\n'.join((
     ",۱ ستاره,۲ ستاره,۳ ستاره, ۴ ستاره, ۵ ستاره, همه‌ برچسب‌ها",
@@ -58,11 +58,11 @@ ax.pie(
     labeldistance=.6
 )
 fig.savefig("../stats/sen_cnt.png", dpi=200)
-fig.savefig("../latex_report/Images/sen_cnt.png", dpi=200)
+fig.savefig("../latex_phase1_report/Images/sen_cnt.png", dpi=200)
 plt.close(fig)
 
 # Table
-output_file = open("../latex_report/tables/sen_cnt.csv", "w", encoding="utf-8")
+output_file = open("../latex_phase1_report/tables/sen_cnt.csv", "w", encoding="utf-8")
 output_file2 = open("../stats/sen_cnt.csv", "w", encoding="utf-8")
 output_file.write('\n'.join((
     ",۱ ستاره,۲ ستاره,۳ ستاره, ۴ ستاره, ۵ ستاره, همه‌ برچسب‌ها",
@@ -91,11 +91,11 @@ ax.pie(
     labeldistance=.6
 )
 fig.savefig("../stats/word_cnt.png", dpi=200)
-fig.savefig("../latex_report/Images/word_cnt.png", dpi=200)
+fig.savefig("../latex_phase1_report/Images/word_cnt.png", dpi=200)
 plt.close(fig)
 
 # Table
-output_file = open("../latex_report/tables/word_cnt.csv", "w", encoding="utf-8")
+output_file = open("../latex_phase1_report/tables/word_cnt.csv", "w", encoding="utf-8")
 output_file2 = open("../stats/word_cnt.csv", "w", encoding="utf-8")
 output_file.write('\n'.join((
     ",۱ ستاره,۲ ستاره,۳ ستاره, ۴ ستاره, ۵ ستاره, همه‌ برچسب‌ها",
@@ -125,11 +125,11 @@ ax.pie(
     labeldistance=.6
 )
 fig.savefig("../stats/unq_word_cnt.png", dpi=200)
-fig.savefig("../latex_report/Images/unq_word_cnt.png", dpi=200)
+fig.savefig("../latex_phase1_report/Images/unq_word_cnt.png", dpi=200)
 plt.close(fig)
 
 # Table
-output_file = open("../latex_report/tables/unq_word_cnt.csv", "w", encoding="utf-8")
+output_file = open("../latex_phase1_report/tables/unq_word_cnt.csv", "w", encoding="utf-8")
 output_file2 = open("../stats/unq_word_cnt.csv", "w", encoding="utf-8")
 output_file.write('\n'.join((
     ",۱ ستاره,۲ ستاره,۳ ستاره, ۴ ستاره, ۵ ستاره",
@@ -168,7 +168,7 @@ for i, key in enumerate(com_words_cnt, start=1):
     pairs_val.append(com_words_cnt[key])
 
 csv_content = ",".join(first_row) + '\n' + ",".join(second_row)
-output_file = open("../latex_report/tables/com_words_cnt.csv", "w", encoding="utf-8")
+output_file = open("../latex_phase1_report/tables/com_words_cnt.csv", "w", encoding="utf-8")
 output_file2 = open("../stats/com_words_cnt.csv", "w", encoding="utf-8")
 output_file.write(csv_content)
 output_file2.write(csv_content)
@@ -201,7 +201,7 @@ for i in ax.patches:
         color='grey'
     )
 fig.savefig("../stats/com_words_cnt.png", dpi=200)
-fig.savefig("../latex_report/Images/com_words_cnt.png", dpi=200)
+fig.savefig("../latex_phase1_report/Images/com_words_cnt.png", dpi=200)
 plt.close(fig)
 
 
@@ -222,7 +222,7 @@ for i, key in enumerate(uncom_words_cnt, start=1):
     pairs_val.append(uncom_words_cnt[key])
 
 csv_content = ",".join(first_row) + '\n' + ",".join(second_row)
-output_file = open("../latex_report/tables/uncom_words_cnt.csv", "w", encoding="utf-8")
+output_file = open("../latex_phase1_report/tables/uncom_words_cnt.csv", "w", encoding="utf-8")
 output_file2 = open("../stats/uncom_words_cnt.csv", "w", encoding="utf-8")
 output_file.write(csv_content)
 output_file2.write(csv_content)
@@ -255,7 +255,7 @@ for i in ax.patches:
         color='grey'
     )
 fig.savefig("../stats/uncom_words_cnt.png", dpi=200)
-fig.savefig("../latex_report/Images/uncom_words_cnt.png", dpi=200)
+fig.savefig("../latex_phase1_report/Images/uncom_words_cnt.png", dpi=200)
 plt.close(fig)
 
 
@@ -289,7 +289,7 @@ for i in tqdm(range(CLS_CNT)):
     for j, key in enumerate(uncom_cnts[i]):
         first_row[j], second_row[j] = key[0], str(key[1])
     csv_content = ",".join(first_row) + '\n' + ",".join(second_row)
-    output_file = open(f"../latex_report/tables/uncom_words_{i+1}star.csv", "w", encoding="utf-8")
+    output_file = open(f"../latex_phase1_report/tables/uncom_words_{i+1}star.csv", "w", encoding="utf-8")
     output_file2 = open(f"../stats/uncom_words_{i+1}star.csv", "w", encoding="utf-8")
     output_file.write(csv_content)
     output_file2.write(csv_content)
@@ -319,7 +319,7 @@ for star in range(CLS_CNT):
             color='grey'
         )
     fig.savefig(f"../stats/uncom_words_{star+1}star.png", dpi=200)
-    fig.savefig(f"../latex_report/Images/uncom_words_{star+1}star.png", dpi=200)
+    fig.savefig(f"../latex_phase1_report/Images/uncom_words_{star+1}star.png", dpi=200)
     plt.close(fig)
 
 
@@ -353,7 +353,7 @@ for i in tqdm(range(CLS_CNT)):
             for k, key in enumerate(topmost):
                 first_row[k], second_row[k] = key[0], "\\lr{{{:.1f}}}".format(key[1])
             csv_content = ",".join(first_row) + '\n' + ",".join(second_row)
-            output_file = open(f"../latex_report/tables/rel_norm_freq_{i + 1}_{j + 1}.csv", "w", encoding="utf-8")
+            output_file = open(f"../latex_phase1_report/tables/rel_norm_freq_{i + 1}_{j + 1}.csv", "w", encoding="utf-8")
             output_file2 = open(f"../stats/rel_norm_freq_{i + 1}_{j + 1}.csv", "w", encoding="utf-8")
             output_file.write(csv_content)
             output_file2.write(csv_content)
@@ -382,7 +382,7 @@ for i in tqdm(range(CLS_CNT)):
                     color='grey'
                 )
             fig.savefig(f"../stats/rel_norm_freq_{i + 1}_{j + 1}.png", dpi=200)
-            fig.savefig(f"../latex_report/Images/rel_norm_freq_{i + 1}_{j + 1}.png", dpi=200)
+            fig.savefig(f"../latex_phase1_report/Images/rel_norm_freq_{i + 1}_{j + 1}.png", dpi=200)
             plt.close(fig)
 
 # TF-IDF
@@ -402,7 +402,7 @@ for star in range(CLS_CNT):
     for k, key in enumerate(topmost, start=1):
         first_row[k], second_row[k] = key[0], "\\lr{{{:.6f}}}".format(key[1])
     csv_content = ",".join(first_row) + '\n' + ",".join(second_row)
-    output_file = open(f"../latex_report/tables/tf_idf_{star+1}.csv", "w", encoding="utf-8")
+    output_file = open(f"../latex_phase1_report/tables/tf_idf_{star+1}.csv", "w", encoding="utf-8")
     output_file2 = open(f"../stats/tf_idf_{star+1}.csv", "w", encoding="utf-8")
     output_file.write(csv_content)
     output_file2.write(csv_content)
@@ -431,7 +431,7 @@ for star in range(CLS_CNT):
             color='grey'
         )
     fig.savefig(f"../stats/tf_idf_{star+1}.png", dpi=200)
-    fig.savefig(f"../latex_report/Images/tf_idf_{star+1}.png", dpi=200)
+    fig.savefig(f"../latex_phase1_report/Images/tf_idf_{star+1}.png", dpi=200)
     plt.close(fig)
 
 ## Histogram of word frequencies
@@ -451,5 +451,5 @@ ax.set_ylabel('Counts')
 frame = plt.gca()
 frame.axes.get_xaxis().set_ticks([])
 fig.savefig(f"../stats/histogram.png", dpi=200)
-fig.savefig(f"../latex_report/Images/histogram.png", dpi=200)
+fig.savefig(f"../latex_phase1_report/Images/histogram.png", dpi=200)
 plt.close(fig)
