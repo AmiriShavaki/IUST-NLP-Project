@@ -19,6 +19,12 @@ python -m src.word2vec.run --file all
 ```
 Then the result model will be saved in `models/Xstar.word2vec.npy` or `models/all.word2vec.npy`
 
+### Generate report table of word2vec results
+```
+python -m srcword2vec_load_query
+```
+Then the result tables will be saved in `\latex_phase2_report\tables`
+
 # Phase 1
 [Link to the collected dataset on huggingface](https://huggingface.co/datasets/Amiri/Google-Play-Reviews-for-Sentiment-Analysis/tree/main)
 
