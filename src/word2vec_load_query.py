@@ -53,8 +53,8 @@ second_row[0] = "کلمه"
 third_row[0] = "شباهت"
 for i, key in enumerate(max_sim_vecs, start=1):
     first_row[i] = "{}ستاره و {}ستاره".format(*key)
-    second_row[i] = str(max_sim_vecs[key][0])
-    third_row[i] = str("{:.2f}".format(max_sim_vecs[key][1]))
+    second_row[i] = "\\lr{" + str(max_sim_vecs[key][0]) + "}"
+    third_row[i] = "\\lr{" + str("{:.2f}".format(max_sim_vecs[key][1])) + "}"
 csv_content = "\n".join((",".join(first_row), ",".join(second_row), ",".join(third_row)))
 output_file = open("latex_phase2_report/tables/word2vec_max_com_sim.csv", "w", encoding="utf-8")
 output_file.write(csv_content)
@@ -68,8 +68,8 @@ second_row[0] = "کلمه"
 third_row[0] = "شباهت"
 for i, key in enumerate(min_sim_vecs, start=1):
     first_row[i] = "{}ستاره و {}ستاره".format(*key)
-    second_row[i] = str(min_sim_vecs[key][0])
-    third_row[i] = str("{:.2f}".format(min_sim_vecs[key][1]))
+    second_row[i] = "\\lr{" + str(min_sim_vecs[key][0]) + "}"
+    third_row[i] = "\\lr{" + str("{:.2f}".format(min_sim_vecs[key][1])) + "}"
 csv_content = "\n".join((",".join(first_row), ",".join(second_row), ",".join(third_row)))
 output_file = open("latex_phase2_report/tables/word2vec_min_com_sim.csv", "w", encoding="utf-8")
 output_file.write(csv_content)
