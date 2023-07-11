@@ -1,6 +1,6 @@
-cd latex_report
+cd latex_phase1_report\
 xelatex main.tex
 cd..
 cp latex_phase1_report\main.pdf Phase1_Report.pdf
-main.pdf
+Phase1_Report.pdf
 PAUSE
