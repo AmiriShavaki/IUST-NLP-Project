@@ -1,3 +1,6 @@
+@echo off
+SetLocal
+
 Echo Starting run script of phase 2>run.log
 
 :: You can uncomment two below lines and replace your desired virtual environment
@@ -33,5 +36,23 @@ Echo Done!>>run.log
 Echo Generating tables of word2vec>>run.log
 python -m src.word2vec_load_query
 Echo Saved in /latex_phase2_report/tables>>run.log
+
+:: Tokenization
+Echo Spliting Dataset into five parts>>run.log
+python -m src.tokenization.split_into_parts
+Echo Tokenizing each part five times with different voab sizes>>run.log
+python -m src.tokenization.tokenize
+Echo Moving generated files to experiments directory>>run.log
+set TOKENSIZE=50 800 5000 15000
+set PART=1 2 3 4 5
+set I=1 2 3 4 5
+FOR %%t in (%TOKENSIZE%) DO (
+  FOR %%p in (%PART%) DO (
+    FOR %%i in (%I%) DO (
+      move %%t_%%p_%%i.model experiments\tokenization\%%t_%%p_%%i.model
+      move %%t_%%p_%%i.vocab experiments\tokenization\%%t_%%p_%%i.vocab
+    )
+  )
+)
 
 PAUSE
