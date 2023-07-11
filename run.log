@@ -14,3 +14,10 @@ Starting to process all of the data at once
 Done!
 Generating tables of word2vec
 Saved in /latex_phase2_report/tables
+Spliting Dataset into five parts
+Training Tokenizer for each part with different voab sizes
+Moving generated files to experiments directoryEvaluating unknown tokens on each part
+Tokenization evaluation Done!
+Evaluating unknown tokens on each part
+Tokenization evaluation Done!
+Best trained tokenizer moved to models\

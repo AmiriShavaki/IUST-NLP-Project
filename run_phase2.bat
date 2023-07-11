@@ -1,12 +1,9 @@
-@echo off
-SetLocal
-
 Echo Starting run script of phase 2>run.log
 
 :: You can uncomment two below lines and replace your desired virtual environment
-call C:/ProgramData/Anaconda3/Scripts/activate
-call conda activate cs224n
-Echo Virtual environment activated successfully>>run.log
+:: call C:/ProgramData/Anaconda3/Scripts/activate
+:: call conda activate cs224n
+:: Echo Virtual environment activated successfully>>run.log
 
 :: Word2Vec
 cp data\sentencebroken\1star.csv src\word2vec\utils\datasets\1star.csv
@@ -40,19 +37,22 @@ Echo Saved in /latex_phase2_report/tables>>run.log
 :: Tokenization
 Echo Spliting Dataset into five parts>>run.log
 python -m src.tokenization.split_into_parts
-Echo Tokenizing each part five times with different voab sizes>>run.log
+Echo Training Tokenizer for each part with different voab sizes>>run.log
 python -m src.tokenization.tokenize
 Echo Moving generated files to experiments directory>>run.log
 set TOKENSIZE=50 800 5000 15000
 set PART=1 2 3 4 5
-set I=1 2 3 4 5
 FOR %%t in (%TOKENSIZE%) DO (
   FOR %%p in (%PART%) DO (
-    FOR %%i in (%I%) DO (
-      move %%t_%%p_%%i.model experiments\tokenization\%%t_%%p_%%i.model
-      move %%t_%%p_%%i.vocab experiments\tokenization\%%t_%%p_%%i.vocab
-    )
+    move %%t_%%p.model experiments\tokenization\%%t_%%p.model
+    move %%t_%%p.vocab experiments\tokenization\%%t_%%p.vocab
   )
 )
-
+Echo Evaluating unknown tokens on each part>>run.log
+FOR %%p in (%PART%) DO (
+  python -m src.tokenization.count_UNK --part %%p
+)
+Echo Tokenization evaluation Done!>>run.log
+move experiments\tokenization\50_3.model models\Tokenizer.model
+Echo Best trained tokenizer moved to models\>>run.log
 PAUSE
