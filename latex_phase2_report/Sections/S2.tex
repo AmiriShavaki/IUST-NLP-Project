@@ -1,0 +1,69 @@
+\Section
+{\lr{tokenization}}
+{
+\subsection{بخش۱ داده‌ها}
+{
+نتیجه آموزش روی کلاس‌های ۲،۳،۴،۵ ستاره و تست روی کلاس ۱ستاره:
+
+\fontfamily{qag}\selectfont \setLR
+\begin{adjustbox}{width=\textwidth}
+  \csvautotabular{Tables/count_UNK1.csv}  
+\end{adjustbox}
+
+}
+\subsection{بخش۲ داده‌ها}
+{
+نتیجه آموزش روی کلاس‌های ۱،۳،۴،۵ ستاره و تست روی کلاس ۲ستاره:
+
+\fontfamily{qag}\selectfont \setLR
+\begin{adjustbox}{width=\textwidth}
+  \csvautotabular{Tables/count_UNK2.csv}  
+\end{adjustbox}
+
+}
+\subsection{بخش۳ داده‌ها}
+{
+نتیجه آموزش روی کلاس‌های ۱،۲،۴،۵ ستاره و تست روی کلاس ۳ستاره:
+
+\fontfamily{qag}\selectfont \setLR
+\begin{adjustbox}{width=\textwidth}
+  \csvautotabular{Tables/count_UNK3.csv}  
+\end{adjustbox}
+
+}
+\subsection{بخش۴ داده‌ها}
+{
+نتیجه آموزش روی کلاس‌های ۱،۲،۳،۵ ستاره و تست روی کلاس ۴ستاره:
+
+\fontfamily{qag}\selectfont \setLR
+\begin{adjustbox}{width=\textwidth}
+  \csvautotabular{Tables/count_UNK4.csv}  
+\end{adjustbox}
+
+}
+\subsection{بخش۵ داده‌ها}
+{
+نتیجه آموزش روی کلاس‌های ۱،۲،۳،۴ ستاره و تست روی کلاس ۵ستاره:
+
+\fontfamily{qag}\selectfont \setLR
+\begin{adjustbox}{width=\textwidth}
+  \csvautotabular{Tables/count_UNK5.csv}  
+\end{adjustbox}
+
+}
+\subsection{انتخاب بهترین تنظیم \lr{Tokenizer}}
+{
+طبق خروجی‌هایی که در جدول‌های بالا می‌بینید حالت‌های با 
+\lr{vocabsize}
+کوچک‌تر تعداد توکن 
+\lr{<UNK>} 
+کمتری در هنگام تست ایجاد می‌کرده‌اند. احتمالا دلیل بهتر عمل کردنشان این است که هر چقدر 
+\lr{vocabsize}
+کوچک‌تر باشد مدل زیرکلمه‌های کوچکتر و عمومی‌تری را انتخاب می‌کند و در نتیجه در مواجهه با کلمات بیشتر و کلی‌تری از آن‌ها می‌تواند استفاده کند.
+
+بهترین عملکرد طبق جداول بالا را مدل آموزش دیده روی کلاس‌های ۱،۲،۴،۵ با \lr{vocabsize=50}
+داشته است پس در فایل \lr{run-phase2.bat}
+دستور منتقل کردن این مدل به پوشه \lr{models}
+به صورت \lr{hard-code} اضافه شده است.
+}
+}
